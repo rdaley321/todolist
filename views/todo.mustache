@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="add" action="/" method="post">
+      <input type="text" placeholder="Add a todo..." name="todo" value="">
+      <input type="submit" name="submit" value="Add todo">
+    </form>
+    <form class="" action="/complete" method="post">
+      {{#todos}}
+      <div class="todos">
+        <button type="submit" name="mark" value="{{.}}">Mark Complete</button><span>{{.}}</span>
+      </div>
+      {{/todos}}
+    </form>
+    <h1>Completed Tasks</h1>
+    {{#complete}}
+    <h4>{{.}}</h4>
+    {{/complete}}
+  </body>
+</html>
