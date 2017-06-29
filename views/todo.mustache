@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form class="add" action="/" method="post">
-      <input type="text" placeholder="Add a todo..." name="todo" value="">
-      <input type="submit" name="submit" value="Add todo">
-    </form>
-    <form class="" action="/complete" method="post">
-      {{#todos}}
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <form class="add" action="/" method="post">
+    <input type="text" placeholder="Add a todo..." name="todo" value="">
+    <input type="submit" name="submit" value="Add todo">
+  </form>
+  <form class="" action="/complete" method="post">
+    {{#incomplete}}
       <div class="todos">
-        <button type="submit" name="mark" value="{{.}}">Mark Complete</button><span>{{.}}</span>
+        <button type="submit" name="id" value="{{id}}">Mark Complete</button><span>{{title}}</span>
       </div>
-      {{/todos}}
-    </form>
-    <h1>Completed Tasks</h1>
+    {{/incomplete}}
+  </form>
+  <h1>Completed Tasks</h1>
+  <form class="" action="/delete" method="post">
     {{#complete}}
-    <h4>{{.}}</h4>
+    <div class="complete">
+      <button type="submit" name="id" value="{{id}}">DELETE</button><span>{{title}}</span>
+    </div>
     {{/complete}}
-  </body>
+  </form>
+  <br>
+  <br>
+  <form class="" action="/deleteAll" method="post">
+    <button type="submit" name="id" value="{{id}}">Delete All Completed Tasks</button>
+  </form>
+</body>
+
 </html>
